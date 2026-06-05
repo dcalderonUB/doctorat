@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendari Comissions Doctorat 2025–2026 · UB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  /* ── UB colour palette ─────────────────────────────────
+     Primary:   #003DA5  (Pantone 286 C — UB corporate blue)
+     Dark:      #002060  (navy, used for headers/accents)
+     Mid:       #1565C0  (medium blue for badges)
+     Light:     #E8F0FB  (pale blue tint for backgrounds)
+     Accent:    #0D47A1  (deep blue for secondary elements)
+     Neutral:   #EEF2F8  (very pale blue-grey, row bg)
+  ─────────────────────────────────────────────────────── */
+
+  :root {
+    --ub-primary:   #003DA5;
+    --ub-dark:      #002060;
+    --ub-mid:       #1565C0;
+    --ub-light:     #E8F0FB;
+    --ub-pale:      #F0F4FC;
+    --ub-accent:    #0D47A1;
+    --ub-border:    #C5D5EE;
+    --ub-text:      #0A1628;
+    --ub-muted:     #4A5E82;
+    --ub-faint:     #7A8FAF;
+    /* follow-up colours: teal keeps contrast on blue bg */
+    --seg-badge:    #00796B;
+    --seg-date:     #E0F2F1;
+    --seg-date-txt: #00574F;
+    --seg-dir-bg:   #B2DFDB;
+    --seg-dir-txt:  #004D40;
+    --seg-pres-bg:  #4DB6AC;
+    --seg-pres-txt: #002B26;
+    --seg-info-bg:  #E0F7F4;
+    --seg-info-brd: #4DB6AC;
+    --seg-info-txt: #00574F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0D2856;
+    color: var(--ub-text);
+    padding: 36px 20px 60px;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,20,80,0.28), 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  /* ── Top stripe ── */
+  .top-stripe {
+    background: var(--ub-dark);
+    height: 5px;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--ub-pale);
+    border-bottom: 1.5px solid var(--ub-border);
+    padding: 14px 40px 12px;
+  }
+  .header-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ub-muted);
+    margin-bottom: 3px;
+  }
+  .header-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ub-dark);
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--ub-muted);
+  }
+
+  /* ── Body padding ── */
+  .body { padding: 28px 40px 40px; }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: var(--ub-pale);
+    border-radius: 8px;
+    border: 1px solid var(--ub-border);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--ub-muted);
+    font-weight: 500;
+  }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+  /* ── Section header ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 26px 0 14px;
+  }
+  .section-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    padding: 5px 13px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .section-line {
+    flex: 1;
+    height: 1.5px;
+    background: var(--ub-border);
+  }
+
+  /* ── Step ── */
+  .step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 9px;
+    align-items: stretch;
+  }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 88px;
+  }
+  .step-date {
+    width: 88px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 7px;
+    border-radius: 7px;
+    text-align: center;
+    line-height: 1.35;
+    flex-shrink: 0;
+  }
+  .step-connector {
+    width: 1.5px;
+    flex: 1;
+    min-height: 8px;
+    background: var(--ub-border);
+    margin-top: 3px;
+  }
+  .step-body {
+    flex: 1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--ub-border);
+    background: #fff;
+  }
+  .step-who {
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+  .step-text { font-size: 13px; line-height: 1.58; color: var(--ub-text); }
+  .step-text strong { font-weight: 600; }
+  .step-text em { font-style: italic; color: var(--ub-muted); }
+  .sub-items { margin: 7px 0 0 4px; padding: 0; list-style: none; }
+  .sub-items li {
+    font-size: 12px;
+    line-height: 1.58;
+    color: #334466;
+    padding: 2px 0 2px 14px;
+    position: relative;
+  }
+  .sub-items li::before {
+    content: "·";
+    position: absolute;
+    left: 2px;
+    color: var(--ub-faint);
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  /* ── Info box ── */
+  .info-box {
+    border-radius: 8px;
+    padding: 11px 14px;
+    border: 1px solid;
+    margin: 4px 0 0 100px;
+    font-size: 12px;
+    line-height: 1.68;
+  }
+  .info-box strong { font-weight: 600; }
+  .info-box em { font-style: italic; }
+
+  /* ── Colour schemes ── */
+  /* Shared / secretaria */
+  .date-shared   { background: var(--ub-light); color: var(--ub-dark); }
+  .who-secretaria{ background: var(--ub-light); color: var(--ub-primary); border: 1px solid var(--ub-border); }
+  .badge-shared  { background: #D6E4F7; color: var(--ub-dark); }
+
+  /* Plans recerca — 1r any — UB blue shades */
+  .date-1r        { background: var(--ub-primary); color: #fff; }
+  .badge-1r       { background: var(--ub-primary); color: #fff; }
+  .who-dir-1r     { background: #DDEAF8; color: var(--ub-dark); border: 1px solid var(--ub-border); }
+  .who-pres-1r    { background: var(--ub-mid); color: #fff; }
+  .info-blue      { background: var(--ub-light); border-color: var(--ub-border); color: var(--ub-dark); }
+
+  /* Seguiment — teal (complementary, readable on blue page) */
+  .date-seg       { background: var(--seg-date); color: var(--seg-date-txt); }
+  .badge-seg      { background: var(--seg-badge); color: #fff; }
+  .who-dir-seg    { background: var(--seg-dir-bg); color: var(--seg-dir-txt); border: 1px solid #80CBC4; }
+  .who-pres-seg   { background: var(--seg-pres-bg); color: var(--seg-pres-txt); }
+  .info-teal      { background: var(--seg-info-bg); border-color: var(--seg-info-brd); color: var(--seg-info-txt); }
+
+  .dot-grey   { background: #8FA5C8; }
+  .dot-blue   { background: var(--ub-primary); }
+  .dot-teal   { background: var(--seg-badge); }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--ub-dark);
+    color: rgba(255,255,255,0.55);
+    padding: 12px 40px;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .footer strong { color: rgba(255,255,255,0.85); }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+    .body { padding: 20px 32px 36px; }
+    .header { padding: 18px 32px 16px; }
+    .footer { background: #002060; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-stripe"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-label">Programa de Doctorat · Didàctica de les Ciències, les Llengües, les Arts i les Humanitats</div>
+    <div class="header-title">Calendari de tasques per a les comissions de tesi</div>
+    <div class="header-sub">Curs 2025–2026 &nbsp;·&nbsp; Plans de recerca (1r any) i comissions de seguiment</div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot dot-grey"></span>Totes les tesis</div>
+      <div class="legend-item"><span class="legend-dot dot-blue"></span>Plans de recerca — 1r any</div>
+      <div class="legend-item"><span class="legend-dot dot-teal"></span>Comissions de seguiment — 2n any i posteriors</div>
+    </div>
+
+    <!-- ══ BLOC 0: SECRETARIA ══ -->
+    <div class="section-header">
+      <span class="section-badge badge-shared">Enviaments de secretaria — totes les tesis</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-shared">16–17<br>juny</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-secretaria">Secretaria</span>
+        <p class="step-text">Envia l'enllaç de la carpeta del doctorand a la <strong>direcció</strong> de cada tesi (SharePoint). En cas de codirecció, s'envia únicament al director que figura en primer lloc, qui haurà de baixar l'informe, omplir-lo i pujar-lo signat digitalment.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-shared">23<br>juny</div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-secretaria">Secretaria</span>
+        <p class="step-text">Envia l'enllaç de la carpeta dels doctorands a les <strong>presidències de comissions</strong> de Pla de Recerca i de seguiment (SharePoint).</p>
+      </div>
+    </div>
+
+    <!-- ══ BLOC 1: PLANS DE RECERCA ══ -->
+    <div class="section-header">
+      <span class="section-badge badge-1r">Plans de recerca — 1r any (2025–2026)</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-1r">18–22<br>juny</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-dir-1r">Direcció de tesi (1r any)</span>
+        <p class="step-text">Elaborar l'informe del pla de recerca del doctorand de 1r any. El document es troba a l'enllaç enviat per secretaria <em>(nou model d'informe)</em>.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-1r">23<br>juny</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-pres-1r">Presidència — comissió pla de recerca</span>
+        <p class="step-text">Compartir la informació de la carpeta del doctorand amb la resta de membres de la comissió del pla de recerca (SharePoint).</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-1r">25–30<br>juny</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-pres-1r">Presidència — comissió pla de recerca</span>
+        <p class="step-text">Organitzar i comunicar la defensa oral (del 9 al 16 de juliol):</p>
+        <ul class="sub-items">
+          <li>Consensuar dia i hora amb la direcció, el doctorand i els membres de la comissió (vegeu pestanya "Comissions" de l'Excel).</li>
+          <li>Comunicar data, hora i lloc a tots els implicats.</li>
+          <li>Si escau, enviar l'enllaç de Teams per a presentacions virtuals o híbrides.</li>
+          <li>Anotar la informació (dia, hora i lloc) a l'Excel compartit (pestanya "Plans recerca").</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-1r">9–16<br>juliol</div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-pres-1r">Presidència — comissió pla de recerca</span>
+        <p class="step-text">Presidir l'acte de defensa del pla de recerca. Omplir i signar digitalment l'acta de defensa (disponible al SharePoint) i tornar-la a pujar.</p>
+      </div>
+    </div>
+
+    <div class="info-box info-blue">
+      <strong>Defensa oral del Pla de Recerca — del 9 al 16 de juliol</strong><br>
+      Modalitat preferiblement <strong>presencial</strong>; per videoconferència per a estudiants residents a l'estranger.<br>
+      <strong>Durada:</strong> ~1 hora. Els primers <strong>20 minuts</strong> el doctorand presenta el Pla amb suport visual. La resta del temps es destina al diàleg amb els membres de la comissió.<br>
+      La direcció de la tesi hi pot assistir, però la sessió <em>no és pública</em>.
+    </div>
+
+    <!-- ══ BLOC 2: SEGUIMENT ══ -->
+    <div class="section-header">
+      <span class="section-badge badge-seg">Comissions de seguiment — 2n any i posteriors</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-seg">18–22<br>juny</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-dir-seg">Direcció de tesi</span>
+        <p class="step-text">Elaborar l'informe de seguiment de la tesi <em>(nou model d'informe)</em>. El document es troba al SharePoint de secretaria.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-seg">23–28<br>juny</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-pres-seg">Presidència — comissió de seguiment</span>
+        <p class="step-text">Compartir la informació de la carpeta del doctorand amb els membres de la comissió de seguiment (SharePoint).</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-date date-seg">29 juny –<br>10 juliol</div>
+      </div>
+      <div class="step-body">
+        <span class="step-who who-pres-seg">Presidència — comissió de seguiment</span>
+        <p class="step-text">Redacció i tancament de l'informe definitiu:</p>
+        <ul class="sub-items">
+          <li>Baixar el document del SharePoint i elaborar una <strong>proposta d'informe</strong> que s'envia als altres dos membres de la comissió per a les seves aportacions.</li>
+          <li>Si algun membre ho considera necessari, organitzar una reunió (presencial o virtual) per tractar el cas.</li>
+          <li>Emplenar i revisar l'informe definitiu.</li>
+          <li><strong>Signar digitalment</strong> l'informe al SharePoint i tornar-lo a pujar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box info-teal">
+      <strong>Nota:</strong> Per als membres de la comissió de seguiment, consulteu la pestanya <strong>"Comissions"</strong> de l'Excel compartit.
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <span><strong>Doctorat</strong> en Didàctica de les Ciències, les Llengües, les Arts i les Humanitats · Universitat de Barcelona</span>
+    <span>Curs 2025–2026</span>
+  </div>
+
+</div>
+</body>
+</html>
